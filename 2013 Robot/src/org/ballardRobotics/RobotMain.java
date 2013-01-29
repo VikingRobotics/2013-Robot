@@ -19,12 +19,13 @@ import edu.wpi.first.wpilibj.*;
  */
 public class RobotMain extends IterativeRobot {
     
-    SpeedController leftDrive;
-    SpeedController rightDrive;
+    //front left, front right, back left, and back right
+    SpeedController FLDrive;
+    SpeedController FRDrive;
+    SpeedController BLDrive;
+    SpeedController BRDrive;
     SpeedController roller;
-    SpeedController shooter1;
-    SpeedController shooter2;
-    SpeedController shooter3;
+    SpeedController shooter;
     SpeedController shooterLift;
     
     /**
@@ -32,14 +33,14 @@ public class RobotMain extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        roller = new Victor(3);
+        roller = new Victor(6);
         //Jaguars can be linked to one pwm port
-        leftDrive = new Jaguar(1);
-        rightDrive = new Jaguar(2);
+        shooter = new Jaguar(5);
         //Talons can not be linked and must use seperate ports
-        shooter1 = new Talon(4);
-        shooter2 = new Talon(5);
-        shooter3 = new Talon(6);
+        FLDrive = new Talon(1);
+        BLDrive = new Talon(2);
+        FRDrive = new Talon(3);
+        BRDrive = new Talon(4);
         //motor used to adjust angle of shooter & climbing pistons
         shooterLift = new Talon(7);
         
