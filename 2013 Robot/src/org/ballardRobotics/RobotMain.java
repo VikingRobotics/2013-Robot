@@ -8,7 +8,7 @@
 package org.ballardRobotics;
 
 
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,12 +18,31 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  * directory.
  */
 public class RobotMain extends IterativeRobot {
+    
+    SpeedController leftDrive;
+    SpeedController rightDrive;
+    SpeedController roller;
+    SpeedController shooter1;
+    SpeedController shooter2;
+    SpeedController shooter3;
+    SpeedController shooterLift;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-
+        roller = new Victor(3);
+        //Jaguars can be linked to one pwm port
+        leftDrive = new Jaguar(1);
+        rightDrive = new Jaguar(2);
+        //Talons can not be linked and must use seperate ports
+        shooter1 = new Talon(4);
+        shooter2 = new Talon(5);
+        shooter3 = new Talon(6);
+        //motor used to adjust angle of shooter & climbing pistons
+        shooterLift = new Talon(7);
+        
     }
 
     /**
