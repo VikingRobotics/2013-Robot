@@ -35,6 +35,7 @@ public class RobotMain extends IterativeRobot {
     DoubleSolenoid climbers;
     DoubleSolenoid loader;
     DoubleSolenoid pickup;
+    Compressor compressor;
     
     Joystick leftJoy;
     Joystick rightJoy;
@@ -62,6 +63,9 @@ public class RobotMain extends IterativeRobot {
         loader = new DoubleSolenoid(3, 4);
         //lowers or raises pickup device
         pickup = new DoubleSolenoid(5, 6);
+        compressor = new Compressor(1, 1);
+        compressor.start();
+        //compressor automatically limits pressure
         
         //Controls
         leftJoy = new Joystick(1);
