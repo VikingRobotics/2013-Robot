@@ -22,15 +22,22 @@ public class RobotMain extends IterativeRobot {
     //front left, front right, back left, and back right
     SpeedController leftDrive;
     SpeedController rightDrive;
+            
     SpeedController roller;
+    
     SpeedController shooter1;
     SpeedController shooter2;
     SpeedController shooter3;
+    
     SpeedController shooterLift1;
     SpeedController shooterLift2;
+    
     DoubleSolenoid climbers;
     DoubleSolenoid loader;
     DoubleSolenoid pickup;
+    
+    Joystick leftJoy;
+    Joystick rightJoy;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -48,13 +55,17 @@ public class RobotMain extends IterativeRobot {
         //motor used to adjust angle of shooter & climbing pistons
         shooterLift1 = new Talon(7);
         shooterLift2 = new Talon(8);
-        //pneumatics
+        
+        //Pneumatics
         climbers = new DoubleSolenoid(1, 2);
         //pushes frisbees into shooter
         loader = new DoubleSolenoid(3, 4);
         //lowers or raises pickup device
         pickup = new DoubleSolenoid(5, 6);
         
+        //Controls
+        leftJoy = new Joystick(1);
+        rightJoy = new Joystick(2);
         
     }
 
