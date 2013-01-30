@@ -28,7 +28,7 @@ public class RobotMain extends IterativeRobot {
     SpeedController shooter1;
     SpeedController shooter2;
     SpeedController shooter3;
-    
+    //hi devin
     SpeedController shooterLift1;
     SpeedController shooterLift2;
     
