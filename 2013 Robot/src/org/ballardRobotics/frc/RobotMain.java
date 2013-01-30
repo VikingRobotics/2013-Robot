@@ -9,6 +9,7 @@ package org.ballardRobotics.frc;
 
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,6 +40,8 @@ public class RobotMain extends IterativeRobot {
     
     public Joystick leftJoy;
     public Joystick rightJoy;
+
+    RollerController rollerController;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -71,6 +74,7 @@ public class RobotMain extends IterativeRobot {
         leftJoy = new Joystick(1);
         rightJoy = new Joystick(2);
         
+        rollerController = new RollerController(roller, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
     }
 
     /**
@@ -84,7 +88,7 @@ public class RobotMain extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        
+        rollerController.periodic();
     }
     
 }

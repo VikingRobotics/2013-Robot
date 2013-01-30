@@ -29,8 +29,5 @@ public class ToggleButton{
             isPressed = false;
         }
             return isToggled;
-    }
-    
-    
-        
+    }        
 }
