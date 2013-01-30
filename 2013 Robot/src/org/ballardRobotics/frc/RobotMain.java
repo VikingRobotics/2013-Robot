@@ -20,25 +20,25 @@ import edu.wpi.first.wpilibj.*;
 public class RobotMain extends IterativeRobot {
     
     //front left, front right, back left, and back right
-    SpeedController leftDrive;
-    SpeedController rightDrive;
+    public SpeedController leftDrive;
+    public SpeedController rightDrive;
             
-    SpeedController roller;
+    public SpeedController roller;
     
-    SpeedController shooter1;
-    SpeedController shooter2;
-    SpeedController shooter3;
+    public SpeedController shooter1;
+    public SpeedController shooter2;
+    public SpeedController shooter3;
     
-    SpeedController shooterLift1;
-    SpeedController shooterLift2;
+    public SpeedController shooterLift1;
+    public SpeedController shooterLift2;
     
-    DoubleSolenoid climbers;
-    DoubleSolenoid loader;
-    DoubleSolenoid pickup;
-    Compressor compressor;
+    public DoubleSolenoid climbers;
+    public DoubleSolenoid loader;
+    public DoubleSolenoid pickup;
+    public Compressor compressor;
     
-    Joystick leftJoy;
-    Joystick rightJoy;
+    public Joystick leftJoy;
+    public Joystick rightJoy;
     
     /**
      * This function is run when the robot is first started up and should be
