@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.ballardRobotics;
+package org.ballardRobotics.frc;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 

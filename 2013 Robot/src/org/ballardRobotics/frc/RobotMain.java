@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.ballardRobotics;
+package org.ballardRobotics.frc;
 
 
 import edu.wpi.first.wpilibj.*;
@@ -28,7 +28,7 @@ public class RobotMain extends IterativeRobot {
     SpeedController shooter1;
     SpeedController shooter2;
     SpeedController shooter3;
-    //hi devin
+    
     SpeedController shooterLift1;
     SpeedController shooterLift2;
     
