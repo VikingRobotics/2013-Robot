@@ -24,7 +24,6 @@ public class RollerController {
         this.motor1 = motor1;
         this.forwardButton = forwardButton;
         this.backwardButton = backwardButton;
-    
     }
     
     public void periodic(){

@@ -42,6 +42,7 @@ public class RobotMain extends IterativeRobot {
     public Joystick rightJoy;
 
     RollerController rollerController;
+    ShooterSubsystem shooterSubsystem;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -74,7 +75,8 @@ public class RobotMain extends IterativeRobot {
         leftJoy = new Joystick(1);
         rightJoy = new Joystick(2);
         
-        rollerController = new RollerController(roller, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
+        rollerController = new RollerController(roller, new JoystickButton(rightJoy, 2), new JoystickButton(rightJoy, 3));
+        shooterSubsystem = new ShooterSubsystem(shooterLift1, shooterLift2, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
     }
 
     /**
@@ -89,6 +91,7 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         rollerController.periodic();
+        shooterSubsystem.periodic();
     }
     
 }
