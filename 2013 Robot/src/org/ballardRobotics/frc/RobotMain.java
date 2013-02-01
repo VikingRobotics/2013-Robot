@@ -49,7 +49,7 @@ public class RobotMain extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        roller = new Victor(6);
+        roller = new Victor(3);
         //Jaguars can be linked to one pwm port
         leftDrive = new Jaguar(1);
         rightDrive = new Jaguar(2);
