@@ -21,17 +21,18 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class RobotMain extends IterativeRobot {
     
     //front left, front right, back left, and back right
-    public SpeedController leftDrive;
-    public SpeedController rightDrive;
+    public Jaguar leftDrive;
+    public Jaguar rightDrive;
+    public RobotDrive robotDrive;
             
-    public SpeedController roller;
+    public Victor roller;
     
-    public SpeedController shooter1;
-    public SpeedController shooter2;
-    public SpeedController shooter3;
+    public Talon shooter1;
+    public Talon shooter2;
+    public Talon shooter3;
     
-    public SpeedController shooterLift1;
-    public SpeedController shooterLift2;
+    public Talon shooterLift1;
+    public Talon shooterLift2;
     
     public DoubleSolenoid climbers;
     public DoubleSolenoid loader;
@@ -44,6 +45,7 @@ public class RobotMain extends IterativeRobot {
     RollerController rollerController;
     ShooterSubsystem shooterSubsystem;
     PistonButton pistonButton;
+    DriveTrain driveTrain;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -54,6 +56,7 @@ public class RobotMain extends IterativeRobot {
         //Jaguars can be linked to one pwm port
         leftDrive = new Jaguar(1);
         rightDrive = new Jaguar(2);
+        robotDrive = new RobotDrive(leftDrive, rightDrive);
         //Talons can not be linked and must use seperate ports
         shooter1 = new Talon(4);
         shooter2 = new Talon(5);
@@ -79,6 +82,7 @@ public class RobotMain extends IterativeRobot {
         rollerController = new RollerController(roller, new JoystickButton(rightJoy, 2), new JoystickButton(rightJoy, 3));
         shooterSubsystem = new ShooterSubsystem(shooterLift1, shooterLift2, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
         pistonButton = new PistonButton(loader, new JoystickButton(leftJoy, 1));
+        driveTrain = new DriveTrain(robotDrive, rightJoy);
     }
 
     /**
@@ -95,5 +99,6 @@ public class RobotMain extends IterativeRobot {
         rollerController.periodic();
         shooterSubsystem.periodic();
         pistonButton.periodic();
+        driveTrain.periodic();
     }
 }
