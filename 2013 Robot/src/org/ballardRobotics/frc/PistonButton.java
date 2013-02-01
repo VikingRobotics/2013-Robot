@@ -16,6 +16,7 @@ public class PistonButton {
     DoubleSolenoid frisbeePuncher;
     JoystickButton pokerButton;
     boolean isFirstPress = true;
+    int c = 0;
     
     public PistonButton(DoubleSolenoid coolPoker, JoystickButton pokerButton){
         this.frisbeePuncher = coolPoker;
@@ -23,13 +24,16 @@ public class PistonButton {
     }
     
     public void periodic(){
-        if(this.pokerButton.get() && this.isFirstPress){
-            this.frisbeePuncher.set(DoubleSolenoid.Value.kForward);
-            this.isFirstPress = false;
-        }else if(!this.pokerButton.get()){
-            this.isFirstPress = true;
-        }else{
-            this.frisbeePuncher.set(DoubleSolenoid.Value.kReverse);
+        if(pokerButton.get()){
+            if(c < 10){
+                this.frisbeePuncher.set(DoubleSolenoid.Value.kForward);
+                this.c++;
+            }else if(c < 15){
+                this.frisbeePuncher.set(DoubleSolenoid.Value.kReverse);
+                c++;
+            }else{
+                c = 0;
+            }
         }
     }
 }
