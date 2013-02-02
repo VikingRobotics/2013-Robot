@@ -48,6 +48,7 @@ public class RobotMain extends IterativeRobot {
     ShooterSubsystem shooterSubsystem;
     PistonButton pistonButton;
     DriveTrain driveTrain;
+    PickUpSystem pickUpSystem;
     Accelerometer accelerometer;
     /**
      * This function is run when the robot is first started up and should be
@@ -70,9 +71,9 @@ public class RobotMain extends IterativeRobot {
         //Pneumatics
         climbers = new DoubleSolenoid(1, 2);
         //pushes frisbees into shooter
-        loader = new DoubleSolenoid(3, 4);
+        //loader = new DoubleSolenoid(3, 4);
         //lowers or raises pickup device
-        pickup = new DoubleSolenoid(5, 6);
+        pickup = new DoubleSolenoid(3, 4);
         compressor = new Compressor(1, 1);
         compressor.start();
         //compressor automatically limits pressure
@@ -85,8 +86,9 @@ public class RobotMain extends IterativeRobot {
         
         rollerController = new RollerController(roller, new JoystickButton(rightJoy, 2), new JoystickButton(rightJoy, 3));
         shooterSubsystem = new ShooterSubsystem(shooterLift1, shooterLift2, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
-        pistonButton = new PistonButton(loader, new JoystickButton(leftJoy, 1));
+        //pistonButton = new PistonButton(loader, new JoystickButton(leftJoy, 1));
         driveTrain = new DriveTrain(robotDrive, rightJoy);
+        pickUpSystem = new PickUpSystem(pickup, new JoystickButton(leftJoy, 4));
         accelerometer = new Accelerometer(adxl345);
     }
 
@@ -103,8 +105,9 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         rollerController.periodic();
         shooterSubsystem.periodic();
-        pistonButton.periodic();
+        //pistonButton.periodic();
         driveTrain.periodic();
+        pickUpSystem.periodic();
         accelerometer.periodic();
     }
 }
