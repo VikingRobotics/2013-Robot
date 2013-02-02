@@ -18,26 +18,26 @@ public class ShooterSubsystem {
     JoystickButton downButton;
     float launcherSpeed;
     
-  public ShooterSubsystem(SpeedController leftMotor, SpeedController rightMotor, JoystickButton upButton, JoystickButton downButton){
-      this.leftMotor = leftMotor;
-      this.rightMotor = rightMotor;
-      this.upButton = upButton;
-      this.downButton = downButton;
-  }
+    public ShooterSubsystem(SpeedController leftMotor, SpeedController rightMotor, JoystickButton upButton, JoystickButton downButton) {
+        this.leftMotor = leftMotor;
+        this.rightMotor = rightMotor;
+        this.upButton = upButton;
+        this.downButton = downButton;
+    }
   
-  public void periodic(){
-      if(this.downButton.get() && !this.upButton.get()){
-          leftMotor.set(-0.1);
-          rightMotor.set(-0.1);
-      } 
-      else if(!this.downButton.get() && this.upButton.get()){
-          leftMotor.set(0.1);
-          rightMotor.set(0.1);
-      } 
-      else{
-          leftMotor.set(0);
-          rightMotor.set(0);      
-      }
-  }
+    public void periodic() {
+        if(this.downButton.get() && !this.upButton.get()) {
+            leftMotor.set(-0.1);
+            rightMotor.set(-0.1);
+         } 
+         else if(!this.downButton.get() && this.upButton.get()) {
+            leftMotor.set(0.1);
+            rightMotor.set(0.1);
+         } 
+         else {
+            leftMotor.set(0);
+            rightMotor.set(0);      
+         }
+    }
 }
 
