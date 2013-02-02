@@ -41,12 +41,14 @@ public class RobotMain extends IterativeRobot {
     
     public Joystick leftJoy;
     public Joystick rightJoy;
+    
+    public ADXL345_I2C adxl345;
 
     RollerController rollerController;
     ShooterSubsystem shooterSubsystem;
     PistonButton pistonButton;
     DriveTrain driveTrain;
-    
+    Accelerometer accelerometer;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -79,10 +81,13 @@ public class RobotMain extends IterativeRobot {
         leftJoy = new Joystick(1);
         rightJoy = new Joystick(2);
         
+        adxl345 = new ADXL345_I2C(1, ADXL345_I2C.DataFormat_Range.k2G);
+        
         rollerController = new RollerController(roller, new JoystickButton(rightJoy, 2), new JoystickButton(rightJoy, 3));
         shooterSubsystem = new ShooterSubsystem(shooterLift1, shooterLift2, new JoystickButton(leftJoy, 2), new JoystickButton(leftJoy, 3));
         pistonButton = new PistonButton(loader, new JoystickButton(leftJoy, 1));
         driveTrain = new DriveTrain(robotDrive, rightJoy);
+        accelerometer = new Accelerometer(adxl345);
     }
 
     /**
@@ -100,5 +105,6 @@ public class RobotMain extends IterativeRobot {
         shooterSubsystem.periodic();
         pistonButton.periodic();
         driveTrain.periodic();
+        accelerometer.periodic();
     }
 }
